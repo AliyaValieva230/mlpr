@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Слабые покемоны</title>
+</head>
+<body>
+    <h1>Топ самых слабых покемонов</h1>
+    <table border="1">
+        <tr><th>Имя</th><th>Тип1</th><th>Тип2</th><th>HP</th><th>Атака</th><th>Защита</th><th>Скорость</th><th>Сумма статов</th></tr>
+        {% for p in pokemons %}
+        <tr>
+            <td>{{ p.name }}</td>
+            <td>{{ p.type1 }}</td>
+            <td>{{ p.type2 }}</td>
+            <td>{{ p.hp }}</td>
+            <td>{{ p.attack }}</td>
+            <td>{{ p.defense }}</td>
+            <td>{{ p.speed }}</td>
+            <td>{{ p.total }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="/">Перейти на главную страницу</a>
+</body>
+</html>

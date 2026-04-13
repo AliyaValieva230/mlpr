@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Поиск покемона по имени</title>
+</head>
+<body>
+    <h1>Поиск покемона по имени</h1>
+    <form method="post">
+        <input type="text" name="name" value="{{ search_name }}" placeholder="имя">
+        <button type="submit">Найти</button>
+    </form>
+
+    {% if results %}
+        <h2>Результаты ({{ results|length }})</h2>
+        <table border="1">
+            <tr><th>Имя</th><th>Тип1</th><th>Тип2</th><th>HP</th><th>Атака</th><th>Защита</th></tr>
+            {% for p in results %}
+            <tr>
+                <td>{{ p.name }}</td>
+                <td>{{ p.type1 }}</td>
+                <td>{{ p.type2 }}</td>
+                <td>{{ p.hp }}</td>
+                <td>{{ p.attack }}</td>
+                <td>{{ p.defense }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% elif search_name %}
+        <p>Не найдено.</p>
+    {% endif %}
+    <a href="/">Перейти на главную страницу</a>
+</body>
+</html>

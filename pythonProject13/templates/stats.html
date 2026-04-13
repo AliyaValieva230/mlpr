@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Выгрузка статистики отзывов по покемонам</title>
+</head>
+<body>
+    <h1>Выгрузка статистики отзывов по покемонам</h1>
+    {% if stats %}
+        <table border="1">
+            <tr><th>Имя</th><th>Тип1</th><th>Тип2</th><th>Средняя оценка</th><th>Кол-во отзывов</th></tr>
+            {% for p in stats %}
+            <tr>
+                <td>{{ p.name }}</td>
+                <td>{{ p.type1 }}</td>
+                <td>{{ p.type2 }}</td>
+                <td>{{ p.avg_rating }}</td>
+                <td>{{ p.num_reviews }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>Отзывы отсутствуют.</p>
+    {% endif %}
+    <a href="/">Перейти на главную страницу</a>
+</body>
+</html>

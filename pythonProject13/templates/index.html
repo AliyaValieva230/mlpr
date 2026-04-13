@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Поиски покемонов</title>
+    <meta charset="UTF-8">
+</head>
+<body>
+    <h1>Поиски покемонов</h1>
+    <form action="/recommend" method="post">
+        <input type="text" name="query">
+        <button type="submit">искать</button>
+    </form>
+
+    <h2>Поиск по имени</h2>
+    <form action="/search" method="post">
+        <input type="text" name="name">
+        <button type="submit">искать</button>
+    </form>
+
+    <h2>Слабые покемоны</h2>
+    <a href="/weakest">Топ слабых покемонов</a>
+
+    <h2>Поиск по характеристикам</h2>
+    <a href="/range">Перейти</a>
+
+    <h2>Добавление отзыва на покемона</h2>
+    <a href="/review">Добавить</a>
+
+    <h2>Статистика отзывов на покемонов</h2>
+    <a href="/stats">Посмотреть</a>
+</body>
+</html>

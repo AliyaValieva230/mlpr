@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Поиск по диапазону характеристик</title>
+</head>
+<body>
+    <h1>Поиск покемонов по диапазону характеристики</h1>
+    <form method="post">
+        <select name="stat">
+            <option value="hp">HP</option>
+            <option value="attack">Attack</option>
+            <option value="defense">Defense</option>
+            <option value="sp_attack">Sp. Attack</option>
+            <option value="sp_defense">Sp. Defense</option>
+            <option value="speed">Speed</option>
+        </select>
+        от <input type="number" name="min_val" step="1" value="{{ min_val or '' }}">
+        до <input type="number" name="max_val" step="1" value="{{ max_val or '' }}">
+        <button type="submit">Искать</button>
+    </form>
+
+    {% if results is not none %}
+        <h2>Результаты ({{ results|length }})</h2>
+        <table border="1">
+            <tr><th>Имя</th><th>{{ stat }}</th><th>Тип1</th><th>Тип2</th></tr>
+            {% for p in results %}
+            <tr>
+                <td>{{ p.name }}</td>
+                <td>{{ p[stat] }}</td>
+                <td>{{ p.type1 }}</td>
+                <td>{{ p.type2 }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% endif %}
+    <a href="/">Перейти на главную страницу</a>
+</body>
+</html>
